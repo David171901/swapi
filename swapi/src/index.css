@@ -1,0 +1,27 @@
+:root {
+  /* Colors */
+  --background-ravn-black: #121212;
+  --color-text-dark: #333333;
+  --color-text-light: #828282;
+  --color-text-emphasis: #EC5757;
+
+  /* Texts Sizes */
+  --text-size-p1: 14px;
+  --text-size-h2: 17px;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'SF Pro Display', sans-serif;
+}
+
+.container {
+  max-width: 1134px;
+  margin: 0 auto;
+}

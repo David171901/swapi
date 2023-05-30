@@ -1,0 +1,9 @@
+@import url('./../../../index.css');
+
+.LoadingCell {
+    width: 375px;
+    height: 56px;
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+}

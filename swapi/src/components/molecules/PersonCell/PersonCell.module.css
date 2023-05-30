@@ -1,0 +1,38 @@
+@import url('./../../../index.css');
+
+.PersonCell {
+    width: 375px;
+    height: 69px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.div {
+    width: 100%;
+}
+
+.h2 {
+    font-size: var(--text-size-h2);
+    font-weight: 700;
+    letter-spacing: 0.0125em;
+    color: var(--color-text-dark);
+    margin: 0;
+}
+
+.p {
+    font-size: var(--text-size-p);
+    font-weight: 400;
+    letter-spacing: 0.0125em;
+    color: var(--color-text-light);
+    margin: 0;
+}
+
+
+.arrow {
+    width: 24px;
+    height: 24px;
+}

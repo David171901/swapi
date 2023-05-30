@@ -1,0 +1,22 @@
+@import url('./../../../index.css');
+
+.LoadingIndicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.h2 {
+    font-size: var(--text-size-h2);
+    font-weight: 700;
+    letter-spacing: 0.0125em;
+    color: var(--color-text-light);
+    display: inline;
+    margin: 0;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}

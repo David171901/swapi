@@ -1,0 +1,17 @@
+@import url('./../../../index.css');
+
+.SectionHeader {
+    width: 375px;
+    height: 56px;
+    padding: 32px 16px 8px 16px;
+    display: flex;
+}
+
+.h2 {
+    font-size: var(--text-size-h2);
+    font-weight: 700;
+    letter-spacing: 0.0125em;
+    color: var(--color-text-dark);
+    align-self: center;
+    margin: 0;
+}

@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
 import useSwapi from "../hooks/useSwapi";
-import LoadingIndicator from "./atoms/LoadingIndicator/LoadingIndicator";
+import Header from "./molecules/Header/Header";
+// import LoadingIndicator from "./atoms/LoadingIndicator/LoadingIndicator";
 import LoadingCell from "./molecules/LoadingCell/LoadingCell";
-import NoticeCell from "./molecules/NoticeCell/NoticeCell";
-import SectionHeader from "./molecules/SectionHeader/SectionHeader";
-import DataCell from "./molecules/DataCell/DataCell";
-import PersonCell from "./molecules/PersonCell/PersonCell";
+// import NoticeCell from "./molecules/NoticeCell/NoticeCell";
+// import SectionHeader from "./molecules/SectionHeader/SectionHeader";
+// import DataCell from "./molecules/DataCell/DataCell";
+// import PersonCell from "./molecules/PersonCell/PersonCell";
 
 export const Layout = () => {
 
@@ -14,18 +15,20 @@ export const Layout = () => {
 
   return (
     <>
-      <div>Swapi</div>
-      <LoadingIndicator></LoadingIndicator>
+      {/* <div>Swapi</div>
+      <LoadingIndicator label="Loading"></LoadingIndicator>
       <br />
-      <LoadingCell></LoadingCell>
+      <SectionHeader label="General Information"></SectionHeader>
       <br />
-      <NoticeCell></NoticeCell>
+      <LoadingCell label="Loading"></LoadingCell>
       <br />
-      <SectionHeader></SectionHeader>
+      <NoticeCell label="Failed to Load Data"></NoticeCell>
       <br />
-      <DataCell></DataCell>
+      <DataCell leftText="Eye Color" rightText="Blue"></DataCell>
       <br />
-      <PersonCell></PersonCell>
+      <PersonCell description="Human from Tatooine" name="Luke Skywalker"></PersonCell> */}
+      <Header></Header>
+      <LoadingCell label="Loading"></LoadingCell>
       <Outlet></Outlet>
     </>
   );

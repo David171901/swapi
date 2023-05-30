@@ -1,14 +1,16 @@
-import styles from './LoadingIndicator.module.css'
+import styles from "./LoadingIndicator.module.css";
 
-const LoadingIndicator = () => {
-  return (
-    <>
-        <div className={styles.LoadingIndicator}>
-            <img src="/spinner.svg" alt="Spinner" className={styles.spinner}/>
-            <h2 className={styles.h2}>Loading</h2>
-        </div>
-    </>
-  )
+interface Props {
+  label: string;
 }
 
-export default LoadingIndicator
+const LoadingIndicator = ({ label }: Props) => {
+  return (
+    <div className={styles.loadingIndicator}>
+      <img src="/spinner.svg" alt="Spinner" className={styles.spinner} />
+      <h2 className={styles.heading}>{label}</h2>
+    </div>
+  );
+};
+
+export default LoadingIndicator;

@@ -1,14 +1,16 @@
-import LoadingIndicator from '../../atoms/LoadingIndicator/LoadingIndicator'
-import styles from './LoadingCell.module.css'
+import LoadingIndicator from '../../atoms/LoadingIndicator/LoadingIndicator';
+import styles from './LoadingCell.module.css';
 
-const LoadingCell = () => {
-  return (
-    <>
-        <div className={styles.LoadingCell}>
-            <LoadingIndicator></LoadingIndicator>
-        </div>
-    </>
-  )
+interface Props {
+  label: string;
 }
 
-export default LoadingCell
+const LoadingCell = ({ label }: Props) => {
+  return (
+    <div className={styles.loadingCell}>
+      <LoadingIndicator label={label} />
+    </div>
+  );
+};
+
+export default LoadingCell;

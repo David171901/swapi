@@ -1,12 +1,12 @@
 @import url('./../../../index.css');
 
-.LoadingIndicator {
+.loadingIndicator {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.h2 {
+.heading {
     font-size: var(--text-size-h2);
     font-weight: 700;
     letter-spacing: 0.0125em;

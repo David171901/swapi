@@ -1,18 +1,18 @@
 @import url('./../../../index.css');
 
-.NoticeCell {
-    width: 375px;
-    height: 56px;
-    padding: 16px;
-    display: flex;
-    justify-content: center;
+.noticeCell {
+  width: 375px;
+  height: 56px;
+  padding: 16px;
+  display: flex;
+  justify-content: center;
 }
 
-.h2 {
-    font-size: var(--text-size-h2);
-    font-weight: 700;
-    letter-spacing: 0.0125em;
-    color: var(--color-text-emphasis);
-    align-self: center;
-    margin: 0;
+.heading {
+  font-size: var(--text-size-h2);
+  font-weight: 700;
+  letter-spacing: 0.0125em;
+  color: var(--color-text-emphasis);
+  align-self: center;
+  margin: 0;
 }

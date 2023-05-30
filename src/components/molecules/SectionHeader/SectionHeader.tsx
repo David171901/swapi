@@ -1,13 +1,15 @@
-import styles from './SectionHeader.module.css'
+import styles from './SectionHeader.module.css';
 
-const SectionHeader = () => {
-  return (
-    <>
-        <div className={styles.SectionHeader}>
-            <h2 className={styles.h2}>General Information</h2>
-        </div>
-    </>
-  )
+interface Props {
+  label: string;
 }
 
-export default SectionHeader
+const SectionHeader = ({ label }: Props) => {
+  return (
+    <div className={styles.sectionHeader}>
+      <h2 className={styles.heading}>{label}</h2>
+    </div>
+  );
+};
+
+export default SectionHeader;

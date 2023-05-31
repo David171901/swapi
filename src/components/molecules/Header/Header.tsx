@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
 
 interface Props {
@@ -6,9 +7,11 @@ interface Props {
 
 const Header = ({label}: Props) => {
   return (
-    <header className={styles.container}>
-      <h2 className={styles.h2}>{label}</h2>
-    </header>
+    <Link to='/'>
+      <header className={styles.container}>
+        <h2 className={styles.h2}>{label}</h2>
+      </header>
+    </Link>
   );
 };
 

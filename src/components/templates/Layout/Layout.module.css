@@ -11,16 +11,24 @@
 }
 
 .columnResults {
+    position: fixed;
+    height: 100vh;
     width: 100%;
-    display: none;
+    top: 0;
+    left: 100%;
+    z-index: 200;
+    transition: all 400ms ease;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 640px) {
     .columnPeople {
         width: 375px;
     }
 
     .columnResults {
+        position: relative;
+        top: 0;
+        left: 0;
         display: block;
         flex: 1;
         padding: 0 100px;

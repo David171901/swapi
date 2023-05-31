@@ -7,8 +7,8 @@ export type SwapiContextProps = {
   getPeopleByID: (id: string) => Promise<Person>;
   loading: boolean;
   error: any;
-  //   offset: number;
-  //   setOffset: (value: number) => void;
+    offset: number;
+    setOffset: (value: number) => void;
 };
 
 interface Props {
@@ -42,6 +42,8 @@ const SwapiProvider = ({ children }: Props) => {
         getPeopleByID,
         loading,
         error,
+        offset,
+        setOffset
       }}
     >
       {children}

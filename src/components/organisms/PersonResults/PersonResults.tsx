@@ -1,15 +1,19 @@
 import { useParams } from "react-router-dom";
 import useSwapi from "../../../hooks/useSwapi";
-import DataCell from "../../molecules/DataCell/DataCell";
-import SectionHeader from "../../molecules/SectionHeader/SectionHeader";
-import { Person, Vehicle } from "../../../interfaces";
+import { Person } from "../../../interfaces";
 import { useEffect, useState } from "react";
+import styles from "./PersonResults.module.css";
+import { DataCell, Header, SectionHeader } from "../../molecules";
 
 function capitalizeFirstLetter(text: string) {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
-const PersonResults = () => {
+export const PersonResults = () => {
+  const [screenSize, setScreenSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
   const { getPeopleByID, loading } = useSwapi();
   const { peopleId } = useParams();
   const [person, setPerson] = useState<Person>();
@@ -23,12 +27,28 @@ const PersonResults = () => {
     fetchPerson(peopleId);
   }, [peopleId]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   if (loading) return <></>;
 
   return (
-    <div>
+    <div className={styles.personResults}>
       {person && (
         <>
+          {screenSize.width < 640 && <Header label={person.name}></Header>}
           <SectionHeader label="General Information"></SectionHeader>
           <DataCell
             leftText="Eye Color"
@@ -59,5 +79,3 @@ const PersonResults = () => {
     </div>
   );
 };
-
-export default PersonResults;

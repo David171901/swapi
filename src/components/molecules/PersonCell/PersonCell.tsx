@@ -7,7 +7,7 @@ interface PersonCellProps {
   id: string;
 }
 
-const PersonCell = ({ name, description, id }: PersonCellProps) => {
+export const PersonCell = ({ name, description, id }: PersonCellProps) => {
   return (
     <Link to={`people/${id}`}>
       <div className={styles.personCell}>
@@ -20,5 +20,3 @@ const PersonCell = ({ name, description, id }: PersonCellProps) => {
     </Link>
   );
 };
-
-export default PersonCell;

@@ -1,12 +1,10 @@
 import InfiniteScroll from "react-infinite-scroll-component";
 import useSwapi from "../../../hooks/useSwapi";
-import LoadingCell from "../../molecules/LoadingCell/LoadingCell";
-import NoticeCell from "../../molecules/NoticeCell/NoticeCell";
-import PersonCell from "../../molecules/PersonCell/PersonCell";
 import styles from "./PeopleColumn.module.css";
+import { LoadingCell, NoticeCell, PersonCell } from "../../molecules";
 
-const PeopleColumn = () => {
-  const { allPeople, loading, error, setOffset, offset } = useSwapi();
+export const PeopleColumn = () => {
+  const { allPeople, loading, error, setPage, page } = useSwapi();
   console.log("🚀 ~ file: PeopleColumn.tsx:10 ~ PeopleColumn ~ allPeople:", allPeople)
 
   if (error)
@@ -24,7 +22,7 @@ const PeopleColumn = () => {
         <InfiniteScroll
           dataLength={allPeople.length}
           hasMore={true}
-          next={() => setOffset(offset + 1)}
+          next={() => setPage(page + 1)}
           loader={<LoadingCell label="Loading"></LoadingCell>}
         >
           <>
@@ -48,5 +46,3 @@ const PeopleColumn = () => {
     </div>
   );
 };
-
-export default PeopleColumn;

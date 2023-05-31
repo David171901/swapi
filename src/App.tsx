@@ -1,34 +1,28 @@
 import { RouteObject, useRoutes } from "react-router-dom";
-import { Layout } from "./components/templates/Layout/Layout";
-import PersonResults from "./components/organisms/PersonResults/PersonResults";
+import { Layout } from "./components/templates";
+import { PersonResults } from "./components/organisms";
 
 function App() {
-
   const routes: RouteObject[] = [
     {
       path: "/",
-      element: <Layout/>,
+      element: <Layout />,
       children: [
         {
           path: "people/:peopleId",
-          element: <PersonResults/>,
+          element: <PersonResults />,
         },
       ],
     },
     {
       path: "*",
       element: <div>404</div>,
-    }
+    },
   ];
 
   const element = useRoutes(routes);
 
-
-  return (
-    <>
-      {element}
-    </>
-  );
+  return <>{element}</>;
 }
 
 export default App;

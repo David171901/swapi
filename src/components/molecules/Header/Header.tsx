@@ -5,14 +5,12 @@ interface Props {
   label: string;
 }
 
-const Header = ({label}: Props) => {
+export const Header = ({ label }: Props) => {
   return (
-    <Link to='/'>
+    <Link to="/">
       <header className={styles.container}>
         <h2 className={styles.h2}>{label}</h2>
       </header>
     </Link>
   );
 };
-
-export default Header;

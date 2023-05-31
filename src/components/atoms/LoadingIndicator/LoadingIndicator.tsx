@@ -4,7 +4,7 @@ interface Props {
   label: string;
 }
 
-const LoadingIndicator = ({ label }: Props) => {
+export const LoadingIndicator = ({ label }: Props) => {
   return (
     <div className={styles.loadingIndicator}>
       <img src="/spinner.svg" alt="Spinner" className={styles.spinner} />
@@ -12,5 +12,3 @@ const LoadingIndicator = ({ label }: Props) => {
     </div>
   );
 };
-
-export default LoadingIndicator;

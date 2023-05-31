@@ -23,8 +23,8 @@ export interface Person {
   edited: string;
   url: string;
   homeworldInfo?: Planet;
-  speciesInfo?: Species; 
-  vehiclesInfo?: Vehicle[]; 
+  speciesInfo?: Species;
+  vehiclesInfo?: Vehicle[];
   [x: string]: any;
 }
 

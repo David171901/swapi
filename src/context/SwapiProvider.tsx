@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext } from "react";
 import { Person } from "../interfaces";
 import { useSwapiPeople } from "../hooks/useSwapiPeople";
 
@@ -7,8 +7,8 @@ export type SwapiContextProps = {
   getPeopleByID: (id: string) => Promise<Person>;
   loading: boolean;
   error: any;
-    offset: number;
-    setOffset: (value: number) => void;
+  page: number;
+  setPage: (value: number) => void;
 };
 
 interface Props {
@@ -18,7 +18,7 @@ interface Props {
 const SwapiContext = createContext<SwapiContextProps>({} as SwapiContextProps);
 
 const SwapiProvider = ({ children }: Props) => {
-  const { allPeople, loading, offset, setOffset, error } = useSwapiPeople();
+  const { allPeople, loading, page, setPage, error } = useSwapiPeople();
 
   const getPeopleByID = async (id: string): Promise<Person> => {
     const baseURL = "https://swapi.dev/api/";
@@ -42,8 +42,8 @@ const SwapiProvider = ({ children }: Props) => {
         getPeopleByID,
         loading,
         error,
-        offset,
-        setOffset
+        page,
+        setPage
       }}
     >
       {children}

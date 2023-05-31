@@ -1,19 +1,60 @@
-import DataCell from "../../molecules/DataCell/DataCell"
-import SectionHeader from "../../molecules/SectionHeader/SectionHeader"
+import { useParams } from "react-router-dom";
+import useSwapi from "../../../hooks/useSwapi";
+import DataCell from "../../molecules/DataCell/DataCell";
+import SectionHeader from "../../molecules/SectionHeader/SectionHeader";
+import { Person, Vehicle } from "../../../interfaces";
+import { useEffect, useState } from "react";
 
-const PersonResults = () => {
-  return (
-    <div>
-        <SectionHeader label="General Information"></SectionHeader>
-        <DataCell leftText="Eye Color" rightText="Blue"></DataCell>
-        <DataCell leftText="Eye Color" rightText="Blue"></DataCell>
-        <DataCell leftText="Eye Color" rightText="Blue"></DataCell>
-        <DataCell leftText="Eye Color" rightText="Blue"></DataCell>
-        <SectionHeader label="Vehicles"></SectionHeader>
-        <DataCell leftText="Snowspeeder" rightText=""></DataCell>
-        <DataCell leftText="Snowspeeder" rightText=""></DataCell>
-    </div>
-  )
+function capitalizeFirstLetter(text: string) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
-export default PersonResults
+const PersonResults = () => {
+  const { getPeopleByID } = useSwapi();
+  const { peopleId } = useParams();
+  const [person, setPerson] = useState<Person>();
+
+  const fetchPerson = async (id: string | undefined) => {
+    const data = await getPeopleByID(id!);
+    setPerson(data);
+  };
+
+  useEffect(() => {
+    fetchPerson(peopleId);
+    console.log(person)
+  }, [peopleId]);
+
+  return (
+    <div>
+      {person && (
+        <>
+          <SectionHeader label="General Information"></SectionHeader>
+          <DataCell
+            leftText="Eye Color"
+            rightText={`${capitalizeFirstLetter(person!.eye_color)}`}
+          ></DataCell>
+          <DataCell
+            leftText="Hair Color"
+            rightText={`${capitalizeFirstLetter(person!.hair_color)}`}
+          ></DataCell>
+          <DataCell
+            leftText="Skin Color"
+            rightText={`${capitalizeFirstLetter(person!.skin_color)}`}
+          ></DataCell>
+          <DataCell
+            leftText="Birth Year"
+            rightText={`${capitalizeFirstLetter(person!.birth_year)}`}
+          ></DataCell>
+          <SectionHeader label="Vehicles"></SectionHeader>
+          {
+            person.vehicles.map((vehicle: Vehicle) =>  (
+              <DataCell leftText={vehicle.name} rightText=""></DataCell>
+            ))
+          }
+        </>
+      )}
+    </div>
+  );
+};
+
+export default PersonResults;

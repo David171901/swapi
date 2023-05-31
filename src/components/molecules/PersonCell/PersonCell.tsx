@@ -8,7 +8,6 @@ interface PersonCellProps {
 }
 
 const PersonCell = ({ name, description, id }: PersonCellProps) => {
-  console.log("🚀 ~ file: PersonCell.tsx:11 ~ PersonCell ~ id:", id)
   return (
     <Link to={`people/${id}`}>
       <div className={styles.personCell}>

@@ -1,28 +1,38 @@
 @import url('./../../../index.css');
 
-.container {
-    width: 100%;
-    height: 52px;
+.header {
     background: var(--background-ravn-black);
+}
+
+.link {
+    text-decoration: none;
+}
+
+.container {
+    position: relative;
+    height: 52px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
     display: flex;
     align-items: center;
-    text-align: center;
     padding: 0px 32px;
 }
 
-.h2 {
+.heading {
     width: 100%;
     font-weight: 700;
     font-size: 17px;
     letter-spacing: 0.0125em;
-    text-align: center;
     color: #FFFFFF;
+    text-align: center;
+}
+
+.icon {
+    position: absolute;
 }
 
 /* Estilos desktop */
 @media screen and (min-width: 640px) {
-    .h2 {
+    .heading {
         text-align: start;
     }
-  }
+}

@@ -27,6 +27,7 @@
 @media screen and (min-width: 640px) {
     .columnPeople {
         width: 375px;
+        box-shadow: inset  -1px 0px 0px rgba(0, 0, 0, 0.15);
     }
 
     .columnResults {

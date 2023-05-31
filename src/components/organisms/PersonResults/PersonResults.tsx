@@ -37,7 +37,7 @@ export const PersonResults = () => {
     <div className={styles.personResults}>
       {person && (
         <>
-          {screenSize.width < 640 && <Header label={person.name}></Header>}
+          {screenSize.width < 640 && <Header label={person.name} showIcon={true}></Header>}
           <SectionHeader label="General Information"></SectionHeader>
           <DataCell
             leftText="Eye Color"

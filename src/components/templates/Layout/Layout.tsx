@@ -9,7 +9,7 @@ export const Layout = () => {
   return (
     <>
       <Header label="People of Star Wars"></Header>
-      <div className={styles.container}>
+      <main className={styles.container}>
         <div className={styles.columnPeople}>
           <PeopleColumn></PeopleColumn>
         </div>
@@ -20,7 +20,7 @@ export const Layout = () => {
         >
           <Outlet></Outlet>
         </div>
-      </div>
+      </main>
     </>
   );
 };

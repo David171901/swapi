@@ -1,19 +1,24 @@
-import styles from './PersonCell.module.css';
+import { Link } from "react-router-dom";
+import styles from "./PersonCell.module.css";
 
 interface PersonCellProps {
   name: string;
   description: string;
+  id: string;
 }
 
-const PersonCell = ({ name, description }: PersonCellProps) => {
+const PersonCell = ({ name, description, id }: PersonCellProps) => {
+  console.log("🚀 ~ file: PersonCell.tsx:11 ~ PersonCell ~ id:", id)
   return (
-    <div className={styles.personCell}>
-      <div className={styles.content}>
-        <h2 className={styles.heading}>{name}</h2>
-        <p className={styles.paragraph}>{description}</p>
+    <Link to={`people/${id}`}>
+      <div className={styles.personCell}>
+        <div className={styles.content}>
+          <h2 className={styles.heading}>{name}</h2>
+          <p className={styles.paragraph}>{description}</p>
+        </div>
+        <img src="/arrow_right.svg" alt="Arrow" className={styles.arrow} />
       </div>
-      <img src="/arrow_right.svg" alt="Arrow" className={styles.arrow} />
-    </div>
+    </Link>
   );
 };
 

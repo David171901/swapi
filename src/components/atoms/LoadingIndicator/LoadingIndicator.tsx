@@ -8,7 +8,7 @@ const LoadingIndicator = ({ label }: Props) => {
   return (
     <div className={styles.loadingIndicator}>
       <img src="/spinner.svg" alt="Spinner" className={styles.spinner} />
-      <h2 className={styles.heading}>{label}</h2>
+      <h1 className={styles.heading}>{label}</h1>
     </div>
   );
 };

@@ -14,9 +14,9 @@ export interface Person {
   eye_color: string;
   birth_year: string;
   gender: string;
-  homeworld: string | Planet;
+  homeworld: Planet | string;
   films: string[];
-  species: string[] | Species;
+  species: Species | string[];
   vehicles: string[];
   starships: string[];
   created: string;

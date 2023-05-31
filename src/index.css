@@ -21,7 +21,38 @@ body {
   font-family: 'SF Pro Display', sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+/* Estilos del contenedor y columnas */
 .container {
-  max-width: 1134px;
-  margin: 0 auto;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+/* Estilos de la columna de personas */
+.column-people {
+  width: 100%;
+}
+
+/* Estilos de la columna de resultados de persona */
+.column-results {
+  width: 100%;
+  display: none; 
+}
+
+/* Estilos específicos para desktop */
+@media screen and (min-width: 768px) {
+  .column-people {
+    width: 22rem;
+  }
+
+  .column-results {
+    display: block;
+    flex: 1;
+    padding: 0 100px;
+    width: 100%;
+  }
 }

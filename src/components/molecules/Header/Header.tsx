@@ -1,10 +1,14 @@
 import styles from "./Header.module.css";
 
-const Header = () => {
+interface Props {
+  label: string;
+}
+
+const Header = ({label}: Props) => {
   return (
-    <div className={styles.container}>
-      <h2 className={styles.h2}>People of Star Wars</h2>
-    </div>
+    <header className={styles.container}>
+      <h2 className={styles.h2}>{label}</h2>
+    </header>
   );
 };
 

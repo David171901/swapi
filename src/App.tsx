@@ -1,5 +1,6 @@
 import { RouteObject, useRoutes } from "react-router-dom";
 import { Layout } from "./components/Layout";
+import PersonResults from "./components/organisms/PersonResults/PersonResults";
 
 function App() {
 
@@ -9,8 +10,8 @@ function App() {
       element: <Layout/>,
       children: [
         {
-          path: "/:id",
-          element: <div>id</div>,
+          path: "people/:peopleId",
+          element: <PersonResults/>,
         },
       ],
     },

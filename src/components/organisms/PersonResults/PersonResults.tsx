@@ -1,9 +1,8 @@
 import { useParams } from "react-router-dom";
-import useSwapi from "../../../hooks/useSwapi";
-import { Person } from "../../../interfaces";
 import { useEffect, useState } from "react";
 import styles from "./PersonResults.module.css";
 import { DataCell, Header, SectionHeader } from "../../molecules";
+import { useSwapiPerson } from "../../../hooks/useSwapiPerson";
 
 function capitalizeFirstLetter(text: string) {
   return text.charAt(0).toUpperCase() + text.slice(1);
@@ -14,18 +13,8 @@ export const PersonResults = () => {
     width: window.innerWidth,
     height: window.innerHeight,
   });
-  const { getPeopleByID, loading } = useSwapi();
   const { peopleId } = useParams();
-  const [person, setPerson] = useState<Person>();
-
-  const fetchPerson = async (id: string | undefined) => {
-    const data = await getPeopleByID(id!);
-    setPerson(data);
-  };
-
-  useEffect(() => {
-    fetchPerson(peopleId);
-  }, [peopleId]);
+  const { person, loading } = useSwapiPerson(peopleId!);
 
   useEffect(() => {
     const handleResize = () => {

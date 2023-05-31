@@ -5,7 +5,6 @@ import { LoadingCell, NoticeCell, PersonCell } from "../../molecules";
 
 export const PeopleColumn = () => {
   const { allPeople, loading, error, setPage, page } = useSwapi();
-  console.log("🚀 ~ file: PeopleColumn.tsx:10 ~ PeopleColumn ~ allPeople:", allPeople)
 
   if (error)
     return (
@@ -21,7 +20,7 @@ export const PeopleColumn = () => {
       ) : (
         <InfiniteScroll
           dataLength={allPeople.length}
-          hasMore={true}
+          hasMore={page < 9}
           next={() => setPage(page + 1)}
           loader={<LoadingCell label="Loading"></LoadingCell>}
         >

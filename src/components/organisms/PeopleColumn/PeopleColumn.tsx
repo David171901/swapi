@@ -1,10 +1,10 @@
 import InfiniteScroll from "react-infinite-scroll-component";
-import useSwapi from "../../../hooks/useSwapi";
+import useSwapiContext from "../../../hooks/useSwapiContext";
 import styles from "./PeopleColumn.module.css";
 import { LoadingCell, NoticeCell, PersonCell } from "../../molecules";
 
 export const PeopleColumn = () => {
-  const { allPeople, loading, error, setPage, page } = useSwapi();
+  const { allPeople, loading, error, setPage, page } = useSwapiContext();
 
   if (error)
     return (

@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import SwapiContext from "../context/SwapiProvider";
 
-const useSwapi = () => {
+const useSwapiContext = () => {
   return useContext(SwapiContext);
 };
 
-export default useSwapi;
+export default useSwapiContext;

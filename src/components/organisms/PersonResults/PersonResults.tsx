@@ -1,35 +1,17 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
 import styles from "./PersonResults.module.css";
 import { DataCell, Header, SectionHeader } from "../../molecules";
 import { useSwapiPerson } from "../../../hooks/useSwapiPerson";
+import useSwapiContext from "../../../hooks/useSwapiContext";
 
 function capitalizeFirstLetter(text: string) {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 export const PersonResults = () => {
-  const [screenSize, setScreenSize] = useState({
-    width: window.innerWidth,
-    height: window.innerHeight,
-  });
   const { peopleId } = useParams();
   const { person, loading } = useSwapiPerson(peopleId!);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setScreenSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const { screenSize } = useSwapiContext();
 
   if (loading) return <></>;
 

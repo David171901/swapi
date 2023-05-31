@@ -10,16 +10,16 @@ export const Layout = () => {
     <>
       <Header label="People of Star Wars"></Header>
       <main className={styles.container}>
-        <div className={styles.columnPeople}>
+        <section className={styles.columnPeople}>
           <PeopleColumn></PeopleColumn>
-        </div>
-        <div
+        </section>
+        <section
           className={`${styles.columnResults} ${
             pathname.includes("people") ? `${styles.active}` : ""
           }`}
         >
           <Outlet></Outlet>
-        </div>
+        </section>
       </main>
     </>
   );

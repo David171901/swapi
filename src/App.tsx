@@ -1,5 +1,5 @@
 import { RouteObject, useRoutes } from "react-router-dom";
-import { Layout } from "./components/Layout";
+import { Layout } from "./components/templates/Layout/Layout";
 import PersonResults from "./components/organisms/PersonResults/PersonResults";
 
 function App() {

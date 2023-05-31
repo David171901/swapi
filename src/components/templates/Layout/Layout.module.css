@@ -1,0 +1,29 @@
+@import url('./../../../index.css');
+
+.container {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.columnPeople {
+    width: 100%;
+}
+
+.columnResults {
+    width: 100%;
+    display: none;
+}
+
+@media screen and (min-width: 768px) {
+    .columnPeople {
+        width: 375px;
+    }
+
+    .columnResults {
+        display: block;
+        flex: 1;
+        padding: 0 100px;
+        width: 100%;
+    }
+}

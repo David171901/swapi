@@ -1,12 +1,8 @@
 import useSwapi from "../../../hooks/useSwapi";
-import { Planet } from "../../../interfaces";
 import LoadingCell from "../../molecules/LoadingCell/LoadingCell";
 import NoticeCell from "../../molecules/NoticeCell/NoticeCell";
 import PersonCell from "../../molecules/PersonCell/PersonCell";
-
-function isPlanet(value: any): value is Planet {
-  return (value as Planet).name !== undefined;
-}
+import styles from "./PeopleColumn.module.css";
 
 const PeopleColumn = () => {
   const { allPeople, loading, error } = useSwapi();
@@ -19,25 +15,21 @@ const PeopleColumn = () => {
     );
 
   return (
-    <div>
+    <div className={styles.peopleColumn}>
       {loading ? (
         <LoadingCell label="Loading"></LoadingCell>
       ) : (
         <>
           {allPeople.map((person) => (
             <PersonCell
-              key={person.url}
-              description={`${
-                Array.isArray(person.species)
-                  ? person.species[0]
-                  : person.species.name
-              } from ${
-                isPlanet(person.homeworld)
-                  ? person.homeworld.name
-                  : person.homeworld
-              }`}
+              key={person.name}
+              description={`${person.speciesInfo!.name} from ${person.homeworldInfo!.name}`}
               name={person.name}
-              id={person.url ? person.url.split("/").filter(Boolean).pop() || "" : ""}
+              id={
+                person.url
+                  ? person.url.split("/").filter(Boolean).pop() || ""
+                  : ""
+              }
             ></PersonCell>
           ))}
         </>

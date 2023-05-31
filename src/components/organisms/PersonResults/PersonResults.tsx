@@ -10,7 +10,7 @@ function capitalizeFirstLetter(text: string) {
 }
 
 const PersonResults = () => {
-  const { getPeopleByID } = useSwapi();
+  const { getPeopleByID, loading } = useSwapi();
   const { peopleId } = useParams();
   const [person, setPerson] = useState<Person>();
 
@@ -21,8 +21,9 @@ const PersonResults = () => {
 
   useEffect(() => {
     fetchPerson(peopleId);
-    console.log(person)
   }, [peopleId]);
+
+  if (loading) return <></>;
 
   return (
     <div>
@@ -46,11 +47,13 @@ const PersonResults = () => {
             rightText={`${capitalizeFirstLetter(person!.birth_year)}`}
           ></DataCell>
           <SectionHeader label="Vehicles"></SectionHeader>
-          {
-            person.vehicles.map((vehicle: Vehicle) =>  (
-              <DataCell leftText={vehicle.name} rightText=""></DataCell>
-            ))
-          }
+          {person.vehiclesInfo!.map((vehicle) => (
+            <DataCell
+              key={vehicle.name}
+              leftText={vehicle.name}
+              rightText=""
+            ></DataCell>
+          ))}
         </>
       )}
     </div>

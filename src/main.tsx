@@ -6,11 +6,11 @@ import "./index.css";
 import { SwapiProvider } from "./context/SwapiProvider.tsx";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <SwapiProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </SwapiProvider>
-  </React.StrictMode>
+  // </React.StrictMode>
 );

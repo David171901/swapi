@@ -24,8 +24,6 @@ const SwapiProvider = ({ children }: Props) => {
     const baseURL = "https://swapi.dev/api/";
     const res = await fetch(`${baseURL}people/${id}`);
     const data = await res.json();
-
-    // Obtener los datos de los vehículos
     const vehiclesData = await Promise.all(
       data.vehicles.map(async (vehicleURL: string) => {
         const vehicleRes = await fetch(vehicleURL);
@@ -33,13 +31,7 @@ const SwapiProvider = ({ children }: Props) => {
         return vehicleData;
       })
     );
-
-    // Reemplazar la clave "vehicles" con los datos obtenidos
-    data.vehicles = vehiclesData;
-
-    // Realizar otras peticiones para obtener información adicional
-    // ...
-
+    data.vehiclesInfo = vehiclesData;
     return data;
   };
 

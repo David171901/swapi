@@ -4,7 +4,7 @@ import styles from "./PeopleColumn.module.css";
 import { LoadingCell, NoticeCell, PersonCell } from "../../molecules";
 
 export const PeopleColumn = () => {
-  const { allPeople, loading, error, setPage, page } = useSwapiContext();
+  const { allPeople, loading, error, setPage, page, screenSize } = useSwapiContext();
 
   if (error)
     return (
@@ -20,9 +20,10 @@ export const PeopleColumn = () => {
       ) : (
         <InfiniteScroll
           dataLength={allPeople.length}
-          hasMore={page < 3}
+          hasMore={page < 4}
           next={() => setPage(page + 1)}
           loader={<LoadingCell label="Loading"></LoadingCell>}
+          scrollableTarget={`${screenSize.width > 640 ? 'scrollableDiv' : ''}`}
         >
           <>
             {allPeople.map((person) => (

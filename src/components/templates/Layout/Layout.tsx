@@ -10,7 +10,7 @@ export const Layout = () => {
     <>
       <TopBar label="People of Star Wars"></TopBar>
       <main className={styles.container}>
-        <section className={styles.columnPeople}>
+        <section className={styles.columnPeople} id="scrollableDiv">
           <PeopleColumn></PeopleColumn>
         </section>
         <section

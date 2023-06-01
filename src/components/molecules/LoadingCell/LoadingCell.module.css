@@ -1,7 +1,8 @@
 @import url('./../../../index.css');
 
 .loadingCell {
-  width: 375px;
+  width: 100%;
+  min-width: 375px;
   height: 56px;
   padding: 16px;
   display: flex;

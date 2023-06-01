@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import styles from "./PersonCell.module.css";
 
 interface PersonCellProps {
@@ -8,9 +8,12 @@ interface PersonCellProps {
 }
 
 export const PersonCell = ({ name, description, id }: PersonCellProps) => {
+
+  const pathname = useLocation().pathname;
+
   return (
     <Link to={`people/${id}`}>
-      <div className={styles.personCell}>
+      <div className={`${styles.personCell} ${pathname.includes(id) ? `${styles.active}` : ''}`}>
         <div className={styles.content}>
           <h2 className={styles.heading}>{name}</h2>
           <p className={styles.paragraph}>{description}</p>

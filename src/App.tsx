@@ -22,7 +22,7 @@ function App() {
 
   const element = useRoutes(routes);
 
-  return <>{element}</>;
+  return <div>{element}</div>;
 }
 
 export default App;

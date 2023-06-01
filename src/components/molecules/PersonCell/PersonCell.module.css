@@ -12,6 +12,10 @@
   position: relative;
 }
 
+.personCell.active {
+  background: #f6f6f6;
+}
+
 .personCell::before {
   content: "";
   position: absolute;

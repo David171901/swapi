@@ -23,19 +23,19 @@ export const PersonResults = () => {
           <SectionHeader label="General Information"></SectionHeader>
           <DataCell
             leftText="Eye Color"
-            rightText={`${capitalizeFirstLetter(person!.eye_color)}`}
+            rightText={`${capitalizeFirstLetter(person.eye_color)}`}
           ></DataCell>
           <DataCell
             leftText="Hair Color"
-            rightText={`${capitalizeFirstLetter(person!.hair_color)}`}
+            rightText={`${capitalizeFirstLetter(person.hair_color)}`}
           ></DataCell>
           <DataCell
             leftText="Skin Color"
-            rightText={`${capitalizeFirstLetter(person!.skin_color)}`}
+            rightText={`${capitalizeFirstLetter(person.skin_color)}`}
           ></DataCell>
           <DataCell
             leftText="Birth Year"
-            rightText={`${capitalizeFirstLetter(person!.birth_year)}`}
+            rightText={`${capitalizeFirstLetter(person.birth_year)}`}
           ></DataCell>
           <SectionHeader label="Vehicles"></SectionHeader>
           {person.vehiclesInfo!.map((vehicle) => (

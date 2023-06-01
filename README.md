@@ -11,6 +11,11 @@ Este proyecto demuestra mis habilidades en el desarrollo de una aplicación Reac
 Para ejecutar este proyecto de forma local, por favor sigue los siguientes pasos:
 
 1. Clona el repositorio en tu máquina local.
+
+```
+git clone https://github.com/David171901/swapi.git
+```
+
 2. Navega hasta el directorio del proyecto.
 3. Instala las dependencias ejecutando el siguiente comando:
 
@@ -26,7 +31,7 @@ Para iniciar el servidor de desarrollo, ejecuta el siguiente comando:
 npm run dev
 ```
 
-Esto iniciará el servidor de desarrollo y la aplicación estará accesible
+Esto iniciará el servidor de desarrollo y la aplicación estará accesible en http://localhost:5173/.
 
 ## Pruebas
 
@@ -40,7 +45,7 @@ Esto ejecutará el conjunto de pruebas y mostrará los resultados de las mismas.
 
 ## Demo
 
-Puedes acceder a la demo en vivo de este proyecto en Enlace de Demo. Ten en cuenta que el enlace puede variar dependiendo de la implementación del proyecto.
+Puedes acceder a la demo en vivo de este proyecto en [Enlace de Demo](https://vercel.com/david171901/david-pino-swapi) . Ten en cuenta que el enlace puede variar dependiendo de la implementación del proyecto.
 
 ## API SWAPI de Star Wars
 
@@ -48,7 +53,3 @@ Este proyecto utiliza la API SWAPI (Star Wars API) para obtener información rel
 
 ## Licencia
 Este proyecto está licenciado bajo la Licencia MIT.
-
-
-
-

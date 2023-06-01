@@ -13,13 +13,26 @@ export const PersonResults = () => {
   const { person, loading } = useSwapiPerson(peopleId!);
   const { screenSize } = useSwapiContext();
 
-  if (loading) return <></>;
+  if (loading)
+    return (
+      <>
+        {screenSize.width < 640 && <TopBar label="" showIcon={true}></TopBar>}
+        <SectionHeader label="General Information"></SectionHeader>
+        <DataCell leftText="Eye Color" rightText=""></DataCell>
+        <DataCell leftText="Hair Color" rightText=""></DataCell>
+        <DataCell leftText="Skin Color" rightText=""></DataCell>
+        <DataCell leftText="Birth Year" rightText=""></DataCell>
+        <SectionHeader label="Vehicles"></SectionHeader>
+      </>
+    );
 
   return (
     <div className={styles.personResults}>
       {person && (
         <>
-          {screenSize.width < 640 && <TopBar label={person.name} showIcon={true}></TopBar>}
+          {screenSize.width < 640 && (
+            <TopBar label={person.name} showIcon={true}></TopBar>
+          )}
           <SectionHeader label="General Information"></SectionHeader>
           <DataCell
             leftText="Eye Color"

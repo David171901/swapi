@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  position: relative; /* Agregamos posición relativa */
+  position: relative;
 }
 
 .dataCell::before {
@@ -15,7 +15,7 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  width: calc(100% - 16px); /* Utilizamos la variable --text-width para restar el ancho del texto de la izquierda */
+  width: calc(100% - 16px); 
   height: 1px;
   background-color: rgba(0, 0, 0, 0.1);
 }

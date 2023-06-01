@@ -20,7 +20,7 @@ export const PeopleColumn = () => {
       ) : (
         <InfiniteScroll
           dataLength={allPeople.length}
-          hasMore={page < 9}
+          hasMore={page < 3}
           next={() => setPage(page + 1)}
           loader={<LoadingCell label="Loading"></LoadingCell>}
         >

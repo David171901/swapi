@@ -45,7 +45,7 @@ Esto ejecutará el conjunto de pruebas y mostrará los resultados de las mismas.
 
 ## Demo
 
-Puedes acceder a la demo en vivo de este proyecto en [Enlace de Demo](https://vercel.com/david171901/david-pino-swapi) . Ten en cuenta que el enlace puede variar dependiendo de la implementación del proyecto.
+Puedes acceder a la demo en vivo de este proyecto en [Enlace de Demo](https://david-pino-swapi.vercel.app/) . Ten en cuenta que el enlace puede variar dependiendo de la implementación del proyecto.
 
 ## API SWAPI de Star Wars
 

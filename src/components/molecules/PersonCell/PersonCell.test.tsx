@@ -2,27 +2,25 @@ import { PersonCell } from "..";
 import { cleanup, render } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 
+const name = "Luke Skywalker";
+const description = "Human from Tatooine";
+const id = "1";
+
 describe("PersonCell", () => {
   afterEach(cleanup);
 
   test("should render", () => {
     render(
       <MemoryRouter>
-        <PersonCell
-          name="Luke Skywalker"
-          description="Human from Tatooine"
-          id="1"
-        ></PersonCell>
+        <PersonCell name={name} description={description} id={id}></PersonCell>
       </MemoryRouter>
     );
   });
 
   test("displays correct name and description text", () => {
-    const name = "Luke Skywalker";
-    const description = "Human from Tatooine";
     const { getByText } = render(
       <MemoryRouter>
-        <PersonCell name={name} description={description} id="1"></PersonCell>
+        <PersonCell name={name} description={description} id={id}></PersonCell>
       </MemoryRouter>
     );
     expect(getByText(name)).toBeDefined();
@@ -34,7 +32,7 @@ describe("PersonCell", () => {
     const description = "Human from Tatooine";
     const { container } = render(
       <MemoryRouter>
-        <PersonCell name={name} description={description} id="1"></PersonCell>
+        <PersonCell name={name} description={description} id={id}></PersonCell>
       </MemoryRouter>
     );
     const personCell = container.firstChild?.firstChild as HTMLElement;

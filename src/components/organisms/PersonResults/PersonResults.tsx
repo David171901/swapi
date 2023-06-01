@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import styles from "./PersonResults.module.css";
-import { DataCell, Header, SectionHeader } from "../../molecules";
+import { DataCell, SectionHeader, TopBar } from "../../molecules";
 import { useSwapiPerson } from "../../../hooks/useSwapiPerson";
 import useSwapiContext from "../../../hooks/useSwapiContext";
 
@@ -19,7 +19,7 @@ export const PersonResults = () => {
     <div className={styles.personResults}>
       {person && (
         <>
-          {screenSize.width < 640 && <Header label={person.name} showIcon={true}></Header>}
+          {screenSize.width < 640 && <TopBar label={person.name} showIcon={true}></TopBar>}
           <SectionHeader label="General Information"></SectionHeader>
           <DataCell
             leftText="Eye Color"

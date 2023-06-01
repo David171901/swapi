@@ -1,14 +1,14 @@
 import { Outlet, useLocation } from "react-router-dom";
 import styles from "./Layout.module.css";
-import { Header } from "../../molecules";
 import { PeopleColumn } from "../../organisms";
+import { TopBar } from "../../molecules";
 
 export const Layout = () => {
   const { pathname } = useLocation();
 
   return (
     <>
-      <Header label="People of Star Wars"></Header>
+      <TopBar label="People of Star Wars"></TopBar>
       <main className={styles.container}>
         <section className={styles.columnPeople}>
           <PeopleColumn></PeopleColumn>

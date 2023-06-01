@@ -1,19 +1,19 @@
 import { Link } from "react-router-dom";
-import styles from "./Header.module.css";
+import styles from "./TopBar.module.css";
 
 interface Props {
   label: string;
   showIcon?: boolean;
 }
 
-export  const Header = ({ label, showIcon = false }: Props) => {
+export const TopBar = ({ label, showIcon = false }: Props) => {
   return (
-    <header className={styles.header}>
+    <header className={styles.topbar}>
       <Link to="/" className={styles.link}>
-        <nav className={styles.container}>
+        <div className={styles.container}>
           {showIcon && <img src="/arrow_left.svg" className={styles.icon} />}
           <h2 className={styles.heading}>{label}</h2>
-        </nav>
+        </div>
       </Link>
     </header>
   );

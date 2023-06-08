@@ -14,34 +14,10 @@ export function useSwapiPeople(): {
   const [error, setError] = useState<any>(null);
 
   const getAllPeople = async () => {
-    const baseURL = "https://swapi.dev/api/";
-
     try {
-      const res = await fetch(`${baseURL}people?page=${page}`);
-      const data = await res.json();
+      const reponseMorePeople = await fecthAllPeople(page);
 
-      const updatedPeopleforHomeworld = await Promise.all(
-        data.results.map(async (person: Person) => {
-          const planetResponse = await fetch(person.homeworld);
-          const planetData = await planetResponse.json();
-          const updatedPerson: Person = { ...person, homeworldInfo: planetData };
-          return updatedPerson;
-        })
-      );
-
-      const updatedPeopleforSpecies = await Promise.all(
-        updatedPeopleforHomeworld.map(async (person: Person) => {
-          const speciesResponse = await fetch(
-            person.species[0] || "https://swapi.dev/api/species/1/"
-          );
-          const speciesData = await speciesResponse.json();
-          const updatedPerson: Person = { ...person, speciesInfo: speciesData };
-          return updatedPerson;
-        })
-      );
-
-      setAllPeople((prevPeople) => [...prevPeople, ...updatedPeopleforSpecies]);
-
+      setAllPeople((prevPeople) => [...prevPeople, ...reponseMorePeople]);
 
       setLoading(false);
     } catch (error) {
@@ -56,3 +32,31 @@ export function useSwapiPeople(): {
 
   return { allPeople, loading, page, setPage, error };
 }
+
+const fecthAllPeople = async (page: number): Promise<Person[]> => {
+  const baseURL = "https://swapi.dev/api/";
+  const res = await fetch(`${baseURL}people?page=${page}`);
+  const data = await res.json();
+
+  const updatedPeopleforHomeworld = await Promise.all(
+    data.results.map(async (person: Person) => {
+      const planetResponse = await fetch(person.homeworld);
+      const planetData = await planetResponse.json();
+      const updatedPerson: Person = { ...person, homeworldInfo: planetData };
+      return updatedPerson;
+    })
+  );
+
+  const updatedPeopleforSpecies = await Promise.all(
+    updatedPeopleforHomeworld.map(async (person: Person) => {
+      const speciesResponse = await fetch(
+        person.species[0] || "https://swapi.dev/api/species/1/"
+      );
+      const speciesData = await speciesResponse.json();
+      const updatedPerson: Person = { ...person, speciesInfo: speciesData };
+      return updatedPerson;
+    })
+  );
+
+  return updatedPeopleforSpecies;
+};

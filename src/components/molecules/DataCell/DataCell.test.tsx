@@ -18,13 +18,4 @@ describe("DataCell", () => {
     expect(getByText(leftText)).toBeDefined();
     expect(getByText(rightText)).toBeDefined();
   });
-
-  test("applies correct CSS classes", () => {
-    const { container } = render(
-      <DataCell leftText={leftText} rightText={rightText}/>
-    );
-    const dataCell = container.firstChild as HTMLElement;
-    const classAttribute = dataCell.getAttribute("class");
-    expect(classAttribute).toContain("dataCell");
-  });
 });

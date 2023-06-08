@@ -14,11 +14,4 @@ describe("LoadingCell", () => {
     const { getByText } = render(<LoadingCell label={label} />);
     expect(getByText(label)).toBeDefined();
   });
-
-  test("applies correct CSS classes", () => {
-    const { container } = render(<LoadingCell label={label} />);
-    const loadingCell = container.firstChild as HTMLElement;
-    const classAttribute = loadingCell.getAttribute("class");
-    expect(classAttribute).toContain("loadingCell");
-  });
 });

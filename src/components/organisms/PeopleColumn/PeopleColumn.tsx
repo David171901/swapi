@@ -1,7 +1,11 @@
 import InfiniteScroll from "react-infinite-scroll-component";
 import useSwapiContext from "../../../hooks/useSwapiContext";
-import styles from "./PeopleColumn.module.css";
 import { LoadingCell, NoticeCell, PersonCell } from "../../molecules";
+import styled from "styled-components";
+
+const PeopleColumnContainer = styled.div`
+  min-height: 100vh;
+`
 
 export const PeopleColumn = () => {
   const { allPeople, loading, error, setPage, page, screenSize } = useSwapiContext();
@@ -14,7 +18,7 @@ export const PeopleColumn = () => {
     );
 
   return (
-    <div className={styles.peopleColumn}>
+    <PeopleColumnContainer>
       {loading ? (
         <LoadingCell label="Loading"></LoadingCell>
       ) : (
@@ -43,6 +47,6 @@ export const PeopleColumn = () => {
           </>
         </InfiniteScroll>
       )}
-    </div>
+    </PeopleColumnContainer>
   );
 };

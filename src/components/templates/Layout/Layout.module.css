@@ -70,3 +70,9 @@
         height: calc(100% - 52px);
     }
 }
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .columnResults {
+      padding: 0;
+    }
+  }
